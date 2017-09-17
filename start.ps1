@@ -338,4 +338,4 @@ copy "$dir\pmmp\plugins\DevTools\*.phar" "$dir\"
 
 echo "Done?"
 
-exit
+exit 0
