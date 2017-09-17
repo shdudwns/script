@@ -313,7 +313,7 @@ $dir = get-location
 md PocketMine
 copy "$dir\pmmp\bin\*" "$dir\PocketMine\bin" -Force
 
-Get-ChildItem "$dir\pmmp\bin"
+Get-ChildItem "$dir\pmmp\bin" -Force
 {
     foreach ($fileInfo in $_)
     {
