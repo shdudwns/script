@@ -311,7 +311,7 @@ cd ..
 echo "Copying PocketMine Server Software For Windows"
 $dir = get-location
 md PocketMine
-copy "$dir\pmmp\bin" "$dir\PocketMine" -Force
+copy "$dir\pmmp\bin\*" "$dir\PocketMine" -Force
 copy "$dir\pmmp\vendor" "$dir\PocketMine" -Force
 copy "$dir\pmmp\start.cmd" "$dir\PocketMine" -Force
 copy "$dir\pmmp\start.ps1" "$dir\PocketMine" -Force
