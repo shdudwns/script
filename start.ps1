@@ -312,14 +312,13 @@ echo "Copying PocketMine Server Software For Windows"
 $dir = get-location
 md PocketMine
 md PocketMine\bin
+md PocketMine\vendor
 copy "$dir\pmmp\bin\*" "$dir\PocketMine\bin" -Force
-copy "$dir\pmmp\vendor" "$dir\PocketMine" -Force
+copy "$dir\pmmp\vendor\*" "$dir\PocketMine\vendor" -Force
 copy "$dir\pmmp\start.cmd" "$dir\PocketMine" -Force
 copy "$dir\pmmp\start.ps1" "$dir\PocketMine" -Force
 md "$dir\PocketMine\plugins"
 copy "$dir\pmmp\archive\DevTools.phar" "$dir\PocketMine\plugins" -Force
-
-copy "$dir\pmmp\plugins\DevTools\*.phar" "$dir\PocketMine" -Force
 
 Get-ChildItem "$dir\pmmp\plugins\DevTools\" -Filter *.phar |
 % {
@@ -337,3 +336,5 @@ echo " "
 copy "$dir\pmmp\plugins\DevTools\*.phar" "$dir\"
 
 echo "Done?"
+
+exit
