@@ -283,10 +283,18 @@ copy "$dir\pmmp\bin" "$dir\PocketMine" -Force
 copy "$dir\pmmp\vendor" "$dir\PocketMine" -Force
 copy "$dir\pmmp\start.cmd" "$dir\PocketMine" -Force
 copy "$dir\pmmp\start.ps1" "$dir\PocketMine" -Force
-copy "$dir\pmmp\plugins\DevTools\*.phar" "$dir\PocketMine" -Force
-ren "$dir\PocketMine\PocketMine-MP*.phar" "PocketMine-MP.phar"
 md "$dir\PocketMine\plugins"
 copy "$dir\pmmp\archive\DevTools.phar" "$dir\PocketMine\plugins" -Force
+
+copy "$dir\pmmp\plugins\DevTools\*.phar" "$dir\PocketMine" -Force
+
+Get-ChildItem "$dir\pmmp\plugins\DevTools\" -Filter *.phar |
+% {
+    foreach ($fileInfo in $_)
+    {
+		ren $dir$fileInfo "PocketMine-MP.phar"
+    } 
+}
 
 New-ZipArchive "$dir\PocketMine\" "$dir\PocketMine.zip"
 
