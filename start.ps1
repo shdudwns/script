@@ -303,7 +303,7 @@ echo "Starting PocketMine Server..."
 echo " "
 
 
-& $dir\install.cmd
+.\server.cmd
 
 echo " "
 
