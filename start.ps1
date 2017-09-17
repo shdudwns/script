@@ -292,7 +292,7 @@ Get-ChildItem "$dir\pmmp\plugins\DevTools\" -Filter *.phar |
 % {
     foreach ($fileInfo in $_)
     {
-		ren $dir$fileInfo "PocketMine-MP.phar"
+		ren "$dir\$fileInfo" "PocketMine-MP.phar"
     } 
 }
 
