@@ -284,7 +284,7 @@ copy "$dir\pmmp\vendor" "$dir\PocketMine" -Force
 copy "$dir\pmmp\start.cmd" "$dir\PocketMine" -Force
 copy "$dir\pmmp\start.ps1" "$dir\PocketMine" -Force
 copy "$dir\pmmp\plugins\DevTools\*.phar" "$dir\PocketMine" -Force
-ren "$dir\PocketMine\*.phar" "PocketMine-MP.phar"
+ren "$dir\PocketMine\PocketMine-MP*.phar" "PocketMine-MP.phar"
 md "$dir\PocketMine\plugins"
 copy "$dir\pmmp\archive\DevTools.phar" "$dir\PocketMine\plugins" -Force
 
