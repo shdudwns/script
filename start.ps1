@@ -296,7 +296,7 @@ if exist PocketMine-MP.phar (
 	)
 )
 
-%PHP_BINARY% -c bin\php %POCKETMINE_FILE% %*"
+%PHP_BINARY% -c bin\php %POCKETMINE_FILE% %*")
 
 echo " "
 echo "Starting PocketMine Server..."
