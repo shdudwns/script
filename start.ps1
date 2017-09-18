@@ -313,7 +313,11 @@ $dir = get-location
 md PocketMine
 md PocketMine\bin
 md PocketMine\vendor
-copy "$dir\pmmp\bin\*" "$dir\PocketMine\bin" -Force
+$item = Get-ChildItem "$dir\pmmp\bin"
+foreach ($fileInfo in $_)
+    {
+		copy "$dir\pmmp\bin\$fileInfo" "$dir\PocketMine\bin"
+    } 
 copy "$dir\pmmp\vendor\*" "$dir\PocketMine\vendor" -Force
 copy "$dir\pmmp\start.cmd" "$dir\PocketMine" -Force
 copy "$dir\pmmp\start.ps1" "$dir\PocketMine" -Force
