@@ -385,7 +385,7 @@ Get-ChildItem "$dir\pmmp\plugins\DevTools\" -Filter *.phar |
 
 New-ZipArchive "$dir\PocketMine\" "$dir\PocketMine.zip"
 echo "It will make zip..."
-start-sleep 5
+start-sleep 10
 
 echo " "
 echo "Copying Artifacts"
