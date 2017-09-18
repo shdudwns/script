@@ -175,7 +175,7 @@ function copy_obj {
 	$since = (Get-Date).AddDays(-180)
 
 	# Fetch files that need to be copie
-	$items = Get-ChildItem $Source -Recurse | Where-Object {$_.LastWriteTime –gt $since}
+	$items = Get-ChildItem $Source -Recurse
 
 	Write-Verbose "$($items.Count) files found"
 
