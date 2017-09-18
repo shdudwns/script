@@ -193,12 +193,12 @@ function copy_obj {
 	    # Copy files
 	    if (!(Test-Path($target))) {
 		Write-Verbose "Copy: $($item.FullName)"
-		Copy-Item -Path $item.FullName -Destination $target -Recurse -Force -Recurse | Out-Null
+		Copy-Item -Path $item.FullName -Destination $target -Force -Recurse | Out-Null
 	    }
 	    else {
 		if($Overwrite) {
 		    Write-Verbose "Overwrite: $($item.FullName)"
-		    Copy-Item -Path $item.FullName -Destination $target -Recurse -Force -Recurse | Out-Null
+		    Copy-Item -Path $item.FullName -Destination $target -Force -Recurse | Out-Null
 		}
 		else {
 		    Write-Verbose "Skip: $($item.FullName)"
