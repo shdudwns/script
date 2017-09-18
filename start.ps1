@@ -181,11 +181,11 @@ function copy_obj {
 
 	foreach ($item in $items) {
 	    Write-Verbose "Working on: $($item.FullName)"
-	    <#$dir = $item.DirectoryName.Replace($Source,$Destination)
+	    $dir = $item.DirectoryName.Replace($Source,$Destination)
 	    $target = $item.FullName.Replace($Source,$Destination)
 
 	    # Create target directory, if not exists
-	    if (!(Test-Path($dir))) { 
+	    <#if (!(Test-Path($dir))) { 
 		Write-Verbose "Creating destination folder: $($dir)"
 		mkdir $dir | Out-Null
 	    }#>
