@@ -157,6 +157,56 @@ Write-Verbose "Ending $($MyInvocation.Mycommand)"
 
 }
 
+function copy_obj {
+	Param(
+	  [string]$Source = 'D:\AutomatedServices\Exchange-Skripte\',  
+	  [string]$Destination = '\\bdr.de\daten\Medien\Software\Freigegeben\Lizenzpflichtig\microsoft\exchange\Scripts\',
+	  [switch]$Overwrite
+	)
+
+	# ensure trailing \
+	if(!($Source.EndsWith('\'))) {$Source = $Source +'\'}
+	if(!($Destination.EndsWith('\'))) {$Destination = $Destination +'\'}
+
+	Write-Output "Copy from: $($Source)"
+	Write-Output "Copy to  : $($Destination)"
+
+	# Copy files that have changed during the last 180 days
+	$since = (Get-Date).AddDays(-180)
+
+	# Fetch files that need to be copie
+	$items = Get-ChildItem $Source -Recurse | Where-Object {$_.LastWriteTime –gt $since}
+
+	Write-Verbose "$($items.Count) files found"
+
+	foreach ($item in $items) {
+	    Write-Verbose "Working on: $($item.FullName)"
+	    $dir = $item.DirectoryName.Replace($Source,$Destination)
+	    $target = $item.FullName.Replace($Source,$Destination)
+
+	    # Create target directory, if not exists
+	    if (!(Test-Path($dir))) { 
+		Write-Verbose "Creating destination folder: $($dir)"
+		mkdir $dir | Out-Null
+	    }
+
+	    # Copy files
+	    if (!(Test-Path($target))) {
+		Write-Verbose "Copy: $($item.FullName)"
+		Copy-Item -Path $item.FullName -Destination $target -Recurse -Force | Out-Null
+	    }
+	    else {
+		if($Overwrite) {
+		    Write-Verbose "Overwrite: $($item.FullName)"
+		    Copy-Item -Path $item.FullName -Destination $target -Recurse -Force | Out-Null
+		}
+		else {
+		    Write-Verbose "Skip: $($item.FullName)"
+		}
+	    }
+	}
+}
+
 del .\*.phar
 del .\*.zip
 
@@ -313,10 +363,12 @@ $dir = get-location
 md PocketMine
 md PocketMine\bin
 md PocketMine\vendor
-copy "$dir\pmmp\bin\*" "$dir\PocketMine\bin\" -Force
+<#copy "$dir\pmmp\bin\*" "$dir\PocketMine\bin\" -Force
 copy "$dir\pmmp\bin\php\*" "$dir\PocketMine\bin\php" -Force
 copy "$dir\pmmp\vendor\*" "$dir\PocketMine\vendor" -Force
-copy "$dir\pmmp\vendor\composer\*" "$dir\PocketMine\vendor\composer" -Force
+copy "$dir\pmmp\vendor\composer\*" "$dir\PocketMine\vendor\composer" -Force#>
+copy_obj "$dir\pmmp\bin\" "$dir\PocketMine\bin\"
+copy_obj "$dir\pmmp\vendor\" "$dir\PocketMine\vendor\"
 copy "$dir\pmmp\start.cmd" "$dir\PocketMine" -Force
 copy "$dir\pmmp\start.ps1" "$dir\PocketMine" -Force
 md "$dir\PocketMine\plugins"
@@ -332,7 +384,8 @@ Get-ChildItem "$dir\pmmp\plugins\DevTools\" -Filter *.phar |
 }
 
 New-ZipArchive "$dir\PocketMine\" "$dir\PocketMine.zip"
-start-sleep 10
+echo "It will make zip..."
+start-sleep 5
 
 echo " "
 echo "Copying Artifacts"
