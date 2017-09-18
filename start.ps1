@@ -313,12 +313,10 @@ $dir = get-location
 md PocketMine
 md PocketMine\bin
 md PocketMine\vendor
-$item = Get-ChildItem "$dir\pmmp\bin"
-foreach ($fileInfo in $_)
-    {
-		copy "$dir\pmmp\bin\$fileInfo" "$dir\PocketMine\bin"
-    } 
+copy "$dir\pmmp\bin\*" "$dir\PocketMine\bin\" -Force
+copy "$dir\pmmp\bin\php\*" "$dir\PocketMine\bin\php" -Force
 copy "$dir\pmmp\vendor\*" "$dir\PocketMine\vendor" -Force
+copy "$dir\pmmp\vendor\composer\*" "$dir\PocketMine\vendor\composer" -Force
 copy "$dir\pmmp\start.cmd" "$dir\PocketMine" -Force
 copy "$dir\pmmp\start.ps1" "$dir\PocketMine" -Force
 md "$dir\PocketMine\plugins"
@@ -341,5 +339,3 @@ echo " "
 copy "$dir\pmmp\plugins\DevTools\*.phar" "$dir\"
 
 echo "Done?"
-
-exit 0
