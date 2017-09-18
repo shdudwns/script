@@ -181,24 +181,24 @@ function copy_obj {
 
 	foreach ($item in $items) {
 	    Write-Verbose "Working on: $($item.FullName)"
-	    $dir = $item.DirectoryName.Replace($Source,$Destination)
+	    <#$dir = $item.DirectoryName.Replace($Source,$Destination)
 	    $target = $item.FullName.Replace($Source,$Destination)
 
 	    # Create target directory, if not exists
 	    if (!(Test-Path($dir))) { 
 		Write-Verbose "Creating destination folder: $($dir)"
 		mkdir $dir | Out-Null
-	    }
+	    }#>
 
 	    # Copy files
 	    if (!(Test-Path($target))) {
 		Write-Verbose "Copy: $($item.FullName)"
-		Copy-Item -Path $item.FullName -Destination $target -Recurse -Force | Out-Null
+		Copy-Item -Path $item.FullName -Destination $target -Recurse -Force -Recurse | Out-Null
 	    }
 	    else {
 		if($Overwrite) {
 		    Write-Verbose "Overwrite: $($item.FullName)"
-		    Copy-Item -Path $item.FullName -Destination $target -Recurse -Force | Out-Null
+		    Copy-Item -Path $item.FullName -Destination $target -Recurse -Force -Recurse | Out-Null
 		}
 		else {
 		    Write-Verbose "Skip: $($item.FullName)"
