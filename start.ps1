@@ -185,20 +185,20 @@ function copy_obj {
 	    $target = $item.FullName.Replace($Source,$Destination)
 
 	    # Create target directory, if not exists
-	    <#if (!(Test-Path($dir))) { 
+	    if (!(Test-Path($dir))) { 
 		Write-Verbose "Creating destination folder: $($dir)"
 		mkdir $dir | Out-Null
-	    }#>
+	    }
 
 	    # Copy files
 	    if (!(Test-Path($target))) {
 		Write-Verbose "Copy: $($item.FullName)"
-		Copy-Item -Path $item.FullName -Destination $target -Force -Recurse | Out-Null
+		Copy-Item -Path $item.FullName -Destination $target -Recurse -Force | Out-Null
 	    }
 	    else {
 		if($Overwrite) {
 		    Write-Verbose "Overwrite: $($item.FullName)"
-		    Copy-Item -Path $item.FullName -Destination $target -Force -Recurse | Out-Null
+		    Copy-Item -Path $item.FullName -Destination $target -Recurse -Force | Out-Null
 		}
 		else {
 		    Write-Verbose "Skip: $($item.FullName)"
