@@ -1,4 +1,4 @@
-$POCKETMINE_BRANCH = "master"
+$POCKETMINE_BRANCH = "mcpe-1.2"
 
 function downloadFile($url, $targetFile)
 { 
