@@ -1,4 +1,4 @@
-$POCKETMINE_BRANCH = "floating-text-entity"
+$POCKETMINE_BRANCH = "master"
 
 function downloadFile($url, $targetFile)
 { 
