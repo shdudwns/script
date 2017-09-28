@@ -384,8 +384,10 @@ Get-ChildItem "$dir\pmmp\plugins\DevTools\" -Filter *.phar |
 }
 
 New-ZipArchive "$dir\PocketMine\" "$dir\PocketMine.zip"
-New-ZipArchive "$dir\pmmp\src\" "$dir\PocketMine-Source.zip"
 echo "It will make zip..."
+start-sleep 10
+
+New-ZipArchive "$dir\pmmp\src\" "$dir\PocketMine-Source.zip"
 start-sleep 10
 
 echo " "
