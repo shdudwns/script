@@ -222,7 +222,7 @@ if (Test-Path(".\PocketMine")) {
 echo " "
 
 echo "Downloading PocketMine-MP"
-git clone https://github.com/pmmp/PocketMine-MP -b $POCKETMINE_BRANCH
+git clone https://github.com/NLOGPlugins/PocketMine-MP -b $POCKETMINE_BRANCH
 ren "PocketMine-MP" "pmmp"
 
 cd "pmmp"
