@@ -363,10 +363,6 @@ $dir = get-location
 md PocketMine
 md PocketMine\bin
 md PocketMine\vendor
-<#copy "$dir\pmmp\bin\*" "$dir\PocketMine\bin\" -Force
-copy "$dir\pmmp\bin\php\*" "$dir\PocketMine\bin\php" -Force
-copy "$dir\pmmp\vendor\*" "$dir\PocketMine\vendor" -Force
-copy "$dir\pmmp\vendor\composer\*" "$dir\PocketMine\vendor\composer" -Force#>
 copy_obj "$dir\pmmp\bin\" "$dir\PocketMine\bin\"
 copy_obj "$dir\pmmp\vendor\" "$dir\PocketMine\vendor\"
 copy "$dir\pmmp\start.cmd" "$dir\PocketMine" -Force
