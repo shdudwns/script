@@ -222,31 +222,9 @@ if (Test-Path(".\PocketMine")) {
 echo " "
 
 echo "Downloading PocketMine-MP"
-git clone https://github.com/pmmp/PocketMine-MP -b $POCKETMINE_BRANCH
+git clone https://github.com/pmmp/PocketMine-MP -b $POCKETMINE_BRANCH --recursive
 ren "PocketMine-MP" "pmmp"
 
-cd "pmmp"
-
-cd .\src
-echo " "
-echo "Downloading PocketMine-SPL"
-git clone https://github.com/pmmp/PocketMine-SPL
-Remove-Item .\spl -Recurse -Force
-ren "PocketMine-SPL" "spl"
-
-echo " "
-echo "Downloading RakLib"
-git clone https://github.com/pmmp/RakLib
-# ren "RakLib" "raklib"
-
-cd .\pocketmine\lang
-echo " "
-echo "Downloading PocketMine-Language"
-git clone https://github.com/pmmp/PocketMine-Language
-Remove-Item .\locale -Recurse -Force
-ren "PocketMine-Language" "locale"
-
-cd ..\..\..
 echo " "
 echo "Downloading PHP Binary"
 git clone https://github.com/CompilePhar/bin
