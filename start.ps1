@@ -225,6 +225,8 @@ echo "Downloading PocketMine-MP"
 git clone https://github.com/pmmp/PocketMine-MP -b $POCKETMINE_BRANCH --recursive
 ren "PocketMine-MP" "pmmp"
 
+cd .\pmmp
+
 echo " "
 echo "Downloading PHP Binary"
 git clone https://github.com/CompilePhar/bin
