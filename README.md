@@ -20,3 +20,9 @@ PocketMine-MP phar build script based on PowerShell
 4. 잠시만 기다리세요. AppVeyor이 컴파일을 끝내면, ARTIFACTS 버튼을 클릭하고 컴파일된 phar을 다운로드하세요.
 
 > 만약에 pmmp가 업데이트된다면, "RE-BUILD COMMIT" 버튼을 눌르고 컴파일될 때까지 기다리세요. 컴파일이 완료되고 업데이트된 pmmp를 다운할 수 있습니다.
+
+
+
+
+
+.
