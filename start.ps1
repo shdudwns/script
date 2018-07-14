@@ -261,7 +261,7 @@ echo "Installing Composer"
 
 #copy "$dir\src\pocketmine\resources\pocketmine.yml" "$dir\pocketmine.yml"
 
-downloadFile "https://raw.githubusercontent.com/pmmp/PocketMine-MP/master/src/pocketmine/resources/pocketmine.yml" "$dir\pocketmine.yml"
+downloadFile "https://raw.githubusercontent.com/nnnlog/script/master/pocketmine.yml" "$dir\pocketmine.yml"
 
 echo " "
 echo "Writing server.properties"
