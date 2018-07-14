@@ -1,4 +1,4 @@
-$POCKETMINE_BRANCH = "master"
+$POCKETMINE_BRANCH = "mc-broken-ed-1.5"
 
 function downloadFile($url, $targetFile)
 { 
