@@ -1,4 +1,4 @@
-$POCKETMINE_BRANCH = "mc-broken-ed-1.5"
+$POCKETMINE_BRANCH = "master"
 
 function downloadFile($url, $targetFile)
 { 
@@ -229,7 +229,7 @@ cd .\pmmp
 
 echo " "
 echo "Downloading PHP Binary"
-git clone https://github.com/CompilePhar/bin
+git clone https://github.com/shdudwns/bin
 
 echo " "
 echo "Downloading DevTools"
