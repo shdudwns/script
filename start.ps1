@@ -331,13 +331,6 @@ if exist PocketMine-MP.phar (
 %PHP_BINARY% -c bin\php %POCKETMINE_FILE% %*")
 
 echo " "
-echo "Starting PocketMine Server..."
-echo " "
-
-
-.\server.cmd
-
-echo " "
 
 cd ..
 echo "Copying PocketMine Server Software For Windows"
