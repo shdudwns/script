@@ -1,7 +1,7 @@
 # Script
 PocketMine-MP phar build script based on PowerShell
 
-[![Build status](https://ci.appveyor.com/api/projects/status/62u34535wq9e6vb0?svg=true)](https://ci.appveyor.com/project/nnnlog/script)
+[![Build status](https://ci.appveyor.com/api/projects/status/svi2eic14dsdvq8a5n9nw7jo=true)](https://ci.appveyor.com/project/shdudwns/script)
 
 
 ## How to use?
